@@ -1,4 +1,230 @@
 <!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Naveen Kuppuswamy</title>
+    <meta name="author" content="Naveen Kuppuswamy">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Naveen Kuppuswamy
+                </p>
+                <p>
+                  I am a Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a> in the Large Behavior Models division. I lead robot data strategy and build tactile-informed foundation models that enable robots to manipulate objects through vision, touch, and audio.
+                </p>
+                <p>
+                  My work spans from award-winning sensor design (SoftBubble, Punyo, PolyTouch) to contact-aware policy learning. PhD from University of Zurich (Marie Curie Fellow).
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:naveen.sk@gmail.com">Email</a> &nbsp;/&nbsp;
+                  <a href="data/Naveen_CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/naveenoid">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:37%;max-width:37%">
+                <a href="images/naveen_christmas_headshot.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/naveen_profile.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Research</h2>
+                <p>
+                  My research focuses on enabling robots to perform reliable manipulation in complex, contact-rich environments. I work at the intersection of hardware, sensing, and learning:
+                </p>
+                <p>
+                  <strong>Tactile-Driven Manipulation:</strong> Designing multi-modal tactile sensors (vision, touch, audio) and developing contact-aware policies that leverage haptic feedback for robust manipulation.
+                </p>
+                <p>
+                  <strong>Large Behavior Models:</strong> Scaling foundation models to manipulation through cross-embodiment learning and multimodal sensing.
+                </p>
+                <p>
+                  <strong>Data Strategy for Robot Learning:</strong> Building scalable data collection frameworks, evaluation methodologies, and best practices for training generalizable robot policies.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Selected Publications</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+<!-- PolyTouch -->
+<tr onmouseout="polytouch_stop()" onmouseover="polytouch_start()" bgcolor="#ffffd0">
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='polytouch_image'>
+        <img src='images/polytouch_after.jpg' width="160">
+      </div>
+      <img src='images/polytouch_before.jpg' width="160">
+    </div>
+    <script type="text/javascript">
+      function polytouch_start() {
+        document.getElementById('polytouch_image').style.opacity = "1";
+      }
+      function polytouch_stop() {
+        document.getElementById('polytouch_image').style.opacity = "0";
+      }
+      polytouch_stop()
+    </script>
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://polytouch.alanz.info/">
+      <span class="papertitle">PolyTouch: A Robust Multi-Modal Tactile Sensor for Contact-rich Manipulation</span>
+    </a>
+    <br>
+    <a href="https://alanz.info/">Jialiang Zhao</a>,
+    <strong>Naveen Kuppuswamy</strong>,
+    <a href="https://www.tri.global/">Siyuan Feng</a>,
+    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
+    <a href="https://web.mit.edu/teda/www/">Edward Adelson</a>
+    <br>
+    <em>ICRA</em>, 2025
+    <br>
+    <a href="https://polytouch.alanz.info/">project page</a>
+    /
+    <a href="https://arxiv.org/abs/2410.15059">arXiv</a>
+    <p></p>
+    <p>
+      A robust multi-modal robot finger combining tactile, acoustic, and peripheral vision sensing for contact-rich manipulation. Demonstrates 20x longer lifespan than commercial tactile sensors and significantly outperforms vision-only policies.
+    </p>
+  </td>
+</tr>
+
+<!-- ManiWAV -->
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/maniwav.jpg' width="160">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://mani-wav.github.io/">
+      <span class="papertitle">ManiWAV: Learning Robot Manipulation from In-the-Wild Audio-Visual Data</span>
+    </a>
+    <br>
+    <a href="https://www.zeyiliu.com/">Zeyi Liu</a>,
+    <a href="https://cheng-chi.github.io/">Cheng Chi</a>,
+    <a href="https://www.tri.global/">Eric Cousineau</a>,
+    <strong>Naveen Kuppuswamy</strong>,
+    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
+    <a href="https://shurans.github.io/">Shuran Song</a>
+    <br>
+    <em>CoRL</em>, 2024
+    <br>
+    <a href="https://mani-wav.github.io/">project page</a>
+    /
+    <a href="https://arxiv.org/abs/2406.19464">arXiv</a>
+    <p></p>
+    <p>
+      An "ear-in-hand" gripper design enabling robots to learn contact-rich manipulation from in-the-wild audio-visual demonstrations. Audio signals reveal contact events, surface materials, and object states that vision alone cannot capture.
+    </p>
+  </td>
+</tr>
+
+<!-- Adaptive Compliance Policy -->
+<tr bgcolor="#ffffd0">
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/adaptive_compliance.jpg' width="160">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://adaptive-compliance.github.io/">
+      <span class="papertitle">Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control</span>
+    </a>
+    <br>
+    <a href="https://yifan-hou.com/">Yifan Hou</a>,
+    <a href="https://www.zeyiliu.com/">Zeyi Liu</a>,
+    <a href="https://cheng-chi.github.io/">Cheng Chi</a>,
+    <a href="https://www.tri.global/">Eric Cousineau</a>,
+    <strong>Naveen Kuppuswamy</strong>,
+    <a href="https://www.tri.global/">Siyuan Feng</a>,
+    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
+    <a href="https://shurans.github.io/">Shuran Song</a>
+    <br>
+    <em>ICRA</em>, 2025
+    <br>
+    <a href="https://adaptive-compliance.github.io/">project page</a>
+    /
+    <a href="https://arxiv.org/abs/2410.14966">arXiv</a>
+    <p></p>
+    <p>
+      A framework that learns to dynamically adjust robot compliance both spatially and temporally from human demonstrations, achieving over 50% performance improvement in contact-rich tasks by balancing position accuracy and force regulation.
+    </p>
+  </td>
+</tr>
+
+<!-- Robot Learning Best Practices -->
+<tr>
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <img src='images/best_practices.jpg' width="160">
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://arxiv.org/abs/2409.09491">
+      <span class="papertitle">Robot Learning as an Empirical Science: Best Practices for Policy Evaluation</span>
+    </a>
+    <br>
+    <a href="https://www.mae.cornell.edu/faculty-directory/hadas-kress-gazit">Hadas Kress-Gazit</a>,
+    <a href="https://www.tri.global/">Kunimatsu Hashimoto</a>,
+    <strong>Naveen Kuppuswamy</strong>,
+    <a href="https://www.tri.global/">Paarth Shah</a>,
+    <a href="https://www.tri.global/">Phoebe Horgan</a>,
+    <a href="https://www.tri.global/">Gordon Richardson</a>,
+    <a href="https://www.tri.global/">Siyuan Feng</a>,
+    <a href="https://www.tri.global/">Benjamin Burchfiel</a>
+    <br>
+    <em>arXiv</em>, 2024
+    <br>
+    <a href="https://arxiv.org/abs/2409.09491">arXiv</a>
+    <p></p>
+    <p>
+      Proposes best practices for robot policy evaluation including detailed success criteria, statistical analysis, and failure mode characterization. Demonstrates evaluation on manipulation tasks with multiple metrics beyond success rate.
+    </p>
+  </td>
+</tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Website template from <a href="https://jonbarron.info/">Jon Barron</a>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,8 +252,8 @@
   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
   <tr style="padding:0px">
     <td style="padding:2.5%;width:63%;vertical-align:middle">
-      <p style="text-align:center">
-        <name>Naveen Kuppuswamy</name>
+      <p class="name" style="text-align: center;">
+        Naveen Kuppuswamy
       </p>
       <p>I am a Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a> in the Large Behavior Models division. I lead robot data strategy and build tactile-informed foundation models that enable robots to manipulate objects through vision, touch, and audio.
       </p>
@@ -49,6 +275,25 @@
     </td>
     <td style="padding:2.5%;width:40%;max-width:40%">
       <a href="images/naveen/profile/christmas_headshot.jpg"><img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/christmas_headshot.jpg" class="hoverZoomLink"></a>
+    </td>
+  </tr>
+</tbody></table>
+<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <tr>
+    <td style="padding:20px;width:100%;vertical-align:middle">
+      <h2>Research</h2>
+      <p>
+        My research focuses on enabling robots to perform reliable manipulation in complex, contact-rich environments. I work at the intersection of hardware, sensing, and learning:
+      </p>
+      <p>
+        <strong>Tactile-Driven Manipulation:</strong> Designing multi-modal tactile sensors (vision, touch, audio) and developing contact-aware policies that leverage haptic feedback for robust manipulation.
+      </p>
+      <p>
+        <strong>Large Behavior Models for Humanoids:</strong> Scaling foundation models to whole-body manipulation through cross-embodiment learning and multimodal sensing.
+      </p>
+      <p>
+        <strong>Data Strategy for Robot Learning:</strong> Building scalable data collection frameworks, evaluation methodologies, and best practices for training generalizable robot policies.
+      </p>
     </td>
   </tr>
 </tbody></table>
