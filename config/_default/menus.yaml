@@ -1,27 +1,22 @@
 # Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-  #     desired widget in your `content/home/` folder.
-  #   The weight parameter defines the order that the links will appear in.
+# Documentation: https://docs.hugoblox.com/getting-started/page-builder/
 
 main:
-  - name: Bio
+  - name: Home
     url: /
     weight: 10
-  - name: Papers
-    url: /#papers
-    weight: 11
-  - name: Talks
-    url: /#talks
-    weight: 12
-  - name: News
-    url: /#news
-    weight: 13
-  - name: Experience
-    url: experience/
+  - name: Research
+    url: /#projects
     weight: 20
-  - name: Projects
-    url: projects/
+  - name: Publications
+    url: /publication/
     weight: 30
-  - name: Courses
-    url: courses/
+  - name: Robots
+    url: /robots-gallery/
     weight: 40
+  - name: About
+    url: /authors/admin/
+    weight: 50
+  - name: Contact
+    url: /#contact
+    weight: 60
