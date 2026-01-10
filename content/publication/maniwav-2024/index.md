@@ -19,10 +19,13 @@ tags:
   - Imitation Learning
   - In-the-Wild Data
 featured: true
-url_pdf: 'https://arxiv.org/abs/2406.19464'
-url_code: ''
-url_project: 'https://maniwav.github.io'
-url_video: 'https://youtu.be/SzHENLZ7_tc'
+links:
+  - name: PDF
+    url: 'https://arxiv.org/abs/2406.19464'
+  - name: Project
+    url: 'https://maniwav.github.io'
+  - name: Video
+    url: 'https://youtu.be/SzHENLZ7_tc'
 image:
   caption: 'Ear-in-hand gripper for in-the-wild audio-visual data collection'
   focal_point: ''

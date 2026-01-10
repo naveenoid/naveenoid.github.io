@@ -18,10 +18,9 @@ tags:
   - Diffusion Policy
   - Multimodal
 featured: true
-url_pdf: ''
-url_code: ''
-url_project: 'https://polytouch.alanz.info'
-url_video: ''
+links:
+  - name: Project
+    url: 'https://polytouch.alanz.info'
 image:
   caption: 'PolyTouch finger with tactile, acoustic, and peripheral vision sensing'
   focal_point: ''

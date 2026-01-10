@@ -21,10 +21,9 @@ tags:
   - Diffusion Policy
   - Force Control
 featured: true
-url_pdf: ''
-url_code: ''
-url_project: 'https://adaptive-compliance.github.io'
-url_video: ''
+links:
+  - name: Project
+    url: 'https://adaptive-compliance.github.io'
 image:
   caption: 'Adaptive compliance for contact-rich manipulation'
   focal_point: ''

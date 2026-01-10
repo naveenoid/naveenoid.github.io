@@ -21,10 +21,9 @@ tags:
   - Best Practices
   - Policy Learning
 featured: false
-url_pdf: 'https://arxiv.org/abs/2409.09491'
-url_code: ''
-url_project: ''
-url_video: ''
+links:
+  - name: PDF
+    url: 'https://arxiv.org/abs/2409.09491'
 image:
   caption: 'Beyond success rate: nuanced policy evaluation'
   focal_point: ''

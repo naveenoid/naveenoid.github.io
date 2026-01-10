@@ -19,10 +19,6 @@ tags:
   - Soft Robotics
   - Grasping
 featured: true
-url_pdf: ''
-url_code: ''
-url_project: ''
-url_video: ''
 image:
   caption: 'SoftBubble gripper with shear force visualization'
   focal_point: ''

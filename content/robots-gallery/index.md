@@ -2,7 +2,7 @@
 title: Robots Gallery
 summary: A journey through two decades of robotics research
 date: '2024-01-01'
-type: landing
+type: page
 ---
 
 # Robots I've Worked With
