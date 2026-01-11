@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <div style="flex: 1;">
+                <h1 class="name">Naveen Kuppuswamy</h1>
+                <p class="blurb">Roboticist, Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a></p>
+                <div class="social-links">
+                    <a href="mailto:naveen.sk@gmail.com">Email</a> / <a href="data/Naveen_CV.pdf">CV</a> / <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> / <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
+                </div>
+            </div>
+            <div class="profile-thumb"><img src="images/IMG_0001.png"></div>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="media.html" class="active">Media</a>
+        </nav>
+    </header>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>Media| Naveen Kuppuswamy</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media | Naveen Kuppuswamy</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+    <main class="main-wrap">
+        <h2>Selected Talks</h2>
+        <table class="paper-table">
+            <tr>
+                <td style="width:28%; vertical-align:middle;">
+                    <img src="images/talk_thumbnail_1.jpg" style="width:100%; border-radius:8px;">
+                </td>
+                <td style="width:72%; padding-left:20px; vertical-align:middle;">
+                    <span class="papertitle">Tactile-Informed Foundation Models for Manipulation</span><br>
+                    Invited Talk, <em>RSS Workshop on Tactile Perception</em>, 2025<br>
+                    <a href="#">Slides (PDF)</a> / <a href="#">Video</a>
+                    <p>Discussing the integration of dense haptic feedback into Large Behavior Models at TRI.</p>
+                </td>
+            </tr>
+            </table>
+
+        <hr style="margin: 40px 0;">
+
+        <h2>Robot Gallery</h2>
+        <div class="dense-gallery">
+            <div class="gallery-item" onclick="openModal('images/punyo.jpg')">
+                <img src="images/punyo.jpg" alt="Punyo">
+                <div class="gallery-overlay">Punyo-1 Upper Body</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/softbubble.jpg')">
+                <img src="images/softbubble.jpg" alt="SoftBubble">
+                <div class="gallery-overlay">SoftBubble Gripper</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/polytouch_with_tool.jpg')">
+                <img src="images/polytouch_with_tool.jpg" alt="PolyTouch">
+                <div class="gallery-overlay">PolyTouch Finger</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/icub_white.png')">
+                <img src="images/icub_white.png" alt="iCub">
+                <div class="gallery-overlay">iCub Platform</div>
+            </div>
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById("imageModal").style.display = "flex";
+            document.getElementById("modalImg").src = src;
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            let modal = document.getElementById("imageModal");
+            if (event.target == modal) { closeModal(); }
+        }
+    </script>
+</body>
+</html>

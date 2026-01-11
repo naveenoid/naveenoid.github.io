@@ -1,3 +1,4 @@
+/* --- FONTS (Restored from original template) --- */
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -63,130 +64,252 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Base styles */
+/* --- BASE STYLES --- */
 body, td, th, tr, p, a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
   color: #333;
   background-color: #fff;
+  margin: 0;
   padding: 0;
-  margin: 0;
 }
 
-strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-/* Hover effect for images/videos - keep it simple and working */
-.one {
-  width: 100%;
-  position: relative;
-  display: block;
-}
-
-.two {
-  width: 100%;
-  position: absolute;
+/* --- STICKY HEADER --- */
+.sticky-header {
+  position: sticky;
   top: 0;
-  left: 0;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 0 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.one img, .two video {
-  width: 100%;
-  height: auto;
-  display: block;
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-/* Name styling */
 .name {
-  padding-top: 20px;
-  margin: 0;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 32px;
+  margin: 0;
+  font-weight: normal;
 }
 
-/* Paper title styling */
-.papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+.blurb {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.social-links {
+  margin-top: 15px;
   font-size: 14px;
-  font-weight: 700;
 }
 
-/* Link styling */
-a {
+.social-links a {
   color: #1772d0;
   text-decoration: none;
 }
+.social-links a:hover { color: #f09228; }
 
-a:focus,
-a:hover {
-  color: #f09228;
+.profile-thumb img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* --- NAVIGATION MENU (Refined) --- */
+.nav-menu {
+  max-width: 800px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.nav-menu a {
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
   text-decoration: none;
+  color: #666;
+  letter-spacing: 0.5px;
+  padding-bottom: 3px;
+  transition: 0.2s;
 }
 
-/* Headers */
-h2 {
-  margin: 0;
-  font-weight: normal;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+.nav-menu a.active, .nav-menu a:hover {
+  color: #f09228;
+  border-bottom: 2px solid #f09228;
 }
 
-/* Paper images - add subtle shadow and transition */
-tr td img {
+/* --- MAIN CONTENT --- */
+.main-wrap {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 { font-weight: normal; font-size: 24px; margin-bottom: 20px; }
+
+.about-photo {
+  width: 100%;
   border-radius: 8px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-tr td video {
+/* --- PUBLICATION TABLES --- */
+.paper-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 25px;
+}
+
+.papertitle {
+  font-weight: 700;
+  color: #1772d0;
+  font-size: 15px;
+}
+.papertitle:hover { color: #f09228; }
+
+/* --- HOVER VIDEO EFFECT (Fixed) --- */
+.one {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures content conforms to border-radius */
+}
+
+/* The static image */
+.one img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* The video container */
+.two {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background: white; /* Fills any gaps if aspect ratios differ slightly */
+}
+
+.two video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover actions: Fade in video, fade out image */
+.one:hover .two { opacity: 1; }
+.one:hover img { opacity: 0; }
+
+/* --- ROBOT GALLERY GRID --- */
+.robot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+.robot-card { text-align: center; }
+.robot-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.robot-card img:hover { transform: scale(1.03); }
+.robot-card p { margin-top: 10px; font-weight: 700; color: #555; }
+
+/* --- PROJECT CARDS --- */
+.project-card {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.project-card h3 { margin: 0 0 10px 0; color: #1772d0; }
+
+/* Dense Gallery Grid */
+.dense-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 5px; /* Minimal gap for dense look */
+  margin-top: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Overlay */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
   border-radius: 8px;
 }
 
-tr:hover td img {
-  transform: scale(1.02);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-/* Paragraph spacing */
-p {
-  margin: 10px 0;
-}
-
-/* Table spacing for papers */
-table tbody tr {
-  border-bottom: 1px solid #f0f0f0;
-}
-
-table tbody tr:last-child {
-  border-bottom: none;
-}
-
-span.highlight {
-  background-color: #ffffd0;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .name {
-    font-size: 24px;
-  }
-  
-  .papertitle {
-    font-size: 14px;
-  }
-  
-  h2 {
-    font-size: 20px;
-  }
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
 }

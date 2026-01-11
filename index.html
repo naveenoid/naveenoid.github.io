@@ -1,332 +1,37 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Naveen Kuppuswamy</title>
-    <meta name="author" content="Naveen Kuppuswamy">
+<head>
+    <meta charset="UTF-8">
+    <title>Naveen Kuppuswamy | Roboticist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  </head>
-
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:70%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Naveen Kuppuswamy
-                </p>
-                <p>
-                  I am a Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a> in the Large Behavior Models division. I lead robot data strategy and build tactile-informed foundation models that enable robots to manipulate objects through vision, touch, and audio.
-                </p>
-                <p>
-                  My work spans from award-winning sensor design (SoftBubble, Punyo, PolyTouch) to contact-aware policy learning. PhD from University of Zurich (Marie Curie Fellow).
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:naveen.sk@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/Naveen_CV.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/naveenoid">Github</a> &nbsp;/&nbsp;
-                  <a href="https://naveenoid.wordpress.com">Legacy Site</a>
-                </p>
-
-                <div class="nav-menu">
-                  <a href="#about">About Me</a>
-                  <a href="#publications">Publications</a>
-                  <a href="#projects">Projects</a>
-                  <a href="#teaching">Teaching/Media</a>
-                  <a href="#gallery">Robots Gallery</a>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <div style="flex: 1;">
+                <h1 class="name">Naveen Kuppuswamy</h1>
+                <p class="blurb">Roboticist, Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a></p>
+                <div class="social-links">
+                    <a href="mailto:naveen.sk@gmail.com">Email</a> / <a href="data/Naveen_CV.pdf">CV</a> / <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> / <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
                 </div>
-              </td>
-              <!-- <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/naveen_christmas_headshot.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/naveen_profile.jpg" class="hoverZoomLink"></a>
-              </td> -->
-              <td style="padding:2.5%;width:30%;max-width:30%">
-                <a href="images/IMG_0001.png"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" alt="profile photo" src="images/IMG_0001.png" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
-          
+            </div>
+            <div class="profile-thumb"><img src="images/IMG_0001.png"></div>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="media.html">Media</a>
+        </nav>
+    </header>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2 id="about">About Me</h2>
-                <p>
-                  My research focuses on enabling robots to perform reliable manipulation in complex, contact-rich environments. I work at the intersection of hardware, sensing, and learning:
-                </p>
-                <p>
-                  <strong>Tactile-Driven Manipulation:</strong> Designing multi-modal tactile sensors (vision, touch, audio) and developing contact-aware policies that leverage haptic feedback for robust manipulation.
-                </p>
-                <p>
-                  <strong>Large Behavior Models:</strong> Scaling foundation models to manipulation through cross-embodiment learning and multimodal sensing.
-                </p>
-                <p>
-                  <strong>Data Strategy for Robot Learning:</strong> Building scalable data collection frameworks, evaluation methodologies, and best practices for training generalizable robot policies.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2  id="publications>Selected Publications</h2>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-<!-- PolyTouch -->
-<tr onmouseout="polytouch_stop()" onmouseover="polytouch_start()">
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <div class="one">
-      <div class="two" id='polytouch_image'>
-        <video width="100%" muted autoplay loop playsinline>
-          <source src="images/polytouch_demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <img src='images/polytouch_with_tool.jpg' width="100%">
-    </div>
-    <script type="text/javascript">
-      function polytouch_start() {
-        document.getElementById('polytouch_image').style.opacity = "1";
-      }
-      function polytouch_stop() {
-        document.getElementById('polytouch_image').style.opacity = "0";
-      }
-      polytouch_stop()
-    </script>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://polytouch.alanz.info/">
-      <span class="papertitle">PolyTouch: A Robust Multi-Modal Tactile Sensor for Contact-rich Manipulation</span>
-    </a>
-    <br>
-    <a href="https://alanz.info/">Jialiang Zhao</a>,
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Siyuan Feng</a>,
-    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
-    <a href="https://web.mit.edu/teda/www/">Edward Adelson</a>
-    <br>
-    <em>ICRA</em>, 2025 <span style="color:#f09228;font-weight:bold;">Best Paper Award, Field and Service Robotics</span>
-    <br>
-    <a href="https://polytouch.alanz.info/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2410.15059">arXiv</a>
-    <p></p>
-    <p>
-      A robust multi-modal robot finger combining tactile, acoustic, and peripheral vision sensing for contact-rich manipulation. Demonstrates 20x longer lifespan than commercial tactile sensors and significantly outperforms vision-only policies.
-    </p>
-  </td>
-</tr>
-
-<!-- TRI LBM Ensemble Paper -->
-<!-- TRI LBM Ensemble Paper -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://toyotaresearchinstitute.github.io/lbm1/">
-      <img src='images/lbm_improvement.png' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://toyotaresearchinstitute.github.io/lbm1/">
-      <span class="papertitle">A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation</span>
-    </a>
-    <br>
-    TRI LBM Team, Jose Barreiros, Andrew Beaulieu, Aditya Bhat, Rick Cory, Eric Cousineau, Hongkai Dai, Ching-Hsin Fang, Kunimatsu Hashimoto, Muhammad Zubair Irshad, Masha Itkina, <strong>Naveen Kuppuswamy</strong>, Kuan-Hui Lee, Katherine Liu, Dale McConachie, Ian McMahon, Haruki Nishimura, Calder Phillips-Grafflin, Charles Richter, Paarth Shah, Krishnan Srinivasan, Blake Wulfe, Chen Xu, Mengchao Zhang, Alex Alspach, Maya Angeles, Kushal Arora, Vitor Campagnolo Guizilini, Alejandro Castro, Dian Chen, Ting-Sheng Chu, Sam Creasey, Sean Curtis, Richard Denitto, Emma Dixon, Eric Dusel, Matthew Ferreira, Aimee Goncalves, Grant Gould, Damrong Guoy, Swati Gupta, Xuchen Han, Kyle Hatch, Brendan Hathaway, Allison Henry, Hillel Hochsztein, Phoebe Horgan, Shun Iwase, Donovon Jackson, Siddharth Karamcheti, Sedrick Keh, Joseph Masterjohn, Jean Mercat, Patrick Miller, Paul Mitiguy, Tony Nguyen, Jeremy Nimmer, Yuki Noguchi, Reko Ong, Aykut Onol, Owen Pfannenstiehl, Richard Poyner, Leticia Priebe Mendes Rocha, Gordon Richardson, Christopher Rodriguez, Derick Seale, Michael Sherman, Mariah Smith-Jones, David Tago, Pavel Tokmakov, Matthew Tran, Basile Van Hoorick, Igor Vasiljevic, Sergey Zakharov, Mark Zolotas, Rares Ambrus, Kerri Fetzer-Borelli, Benjamin Burchfiel, Hadas Kress-Gazit, Siyuan Feng, Stacie Ford, Russ Tedrake
-    <br>
-    <em>arXiv</em>, 2025
-    <br>
-    <a href="https://toyotaresearchinstitute.github.io/lbm1/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2507.05331">arXiv</a>
-    <p></p>
-    <p>
-      A rigorous evaluation of Large Behavior Models (LBMs) through 1,800+ controlled real-world trials. Demonstrates that multitask pretraining on diverse robot data significantly improves robustness, enables faster learning of new tasks with less data, and scales predictably with dataset size and diversity.
-    </p>
-  </td>
-</tr>
-
-<!-- ManiWAV -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://mani-wav.github.io/">
-      <img src='images/maniwav.jpg' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://mani-wav.github.io/">
-      <span class="papertitle">ManiWAV: Learning Robot Manipulation from In-the-Wild Audio-Visual Data</span>
-    </a>
-    <br>
-    <a href="https://www.zeyiliu.com/">Zeyi Liu</a>,
-    <a href="https://cheng-chi.github.io/">Cheng Chi</a>,
-    <a href="https://www.tri.global/">Eric Cousineau</a>,
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
-    <a href="https://shurans.github.io/">Shuran Song</a>
-    <br>
-    <em>CoRL</em>, 2024
-    <br>
-    <a href="https://mani-wav.github.io/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2406.19464">arXiv</a>
-    <p></p>
-    <p>
-      An "ear-in-hand" gripper design enabling robots to learn contact-rich manipulation from in-the-wild audio-visual demonstrations. Audio signals reveal contact events, surface materials, and object states that vision alone cannot capture.
-    </p>
-  </td>
-</tr>
-
-<!-- Adaptive Compliance Policy -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://adaptive-compliance.github.io/">
-      <img src='images/adaptive_compliance.jpg' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://adaptive-compliance.github.io/">
-      <span class="papertitle">Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control</span>
-    </a>
-    <br>
-    <a href="https://yifan-hou.com/">Yifan Hou</a>,
-    <a href="https://www.zeyiliu.com/">Zeyi Liu</a>,
-    <a href="https://cheng-chi.github.io/">Cheng Chi</a>,
-    <a href="https://www.tri.global/">Eric Cousineau</a>,
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Siyuan Feng</a>,
-    <a href="https://www.tri.global/">Benjamin Burchfiel</a>,
-    <a href="https://shurans.github.io/">Shuran Song</a>
-    <br>
-    <em>ICRA</em>, 2025
-    <br>
-    <a href="https://adaptive-compliance.github.io/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2410.14966">arXiv</a>
-    <p></p>
-    <p>
-      A framework that learns to dynamically adjust robot compliance both spatially and temporally from human demonstrations, achieving over 50% performance improvement in contact-rich tasks by balancing position accuracy and force regulation.
-    </p>
-  </td>
-</tr>
-
-<!-- Robot Learning Best Practices -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://arxiv.org/abs/2409.09491">
-      <img src='images/best_practices.jpg' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://arxiv.org/abs/2409.09491">
-      <span class="papertitle">Robot Learning as an Empirical Science: Best Practices for Policy Evaluation</span>
-    </a>
-    <br>
-    <a href="https://www.mae.cornell.edu/faculty-directory/hadas-kress-gazit">Hadas Kress-Gazit</a>,
-    <a href="https://www.tri.global/">Kunimatsu Hashimoto</a>,
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Paarth Shah</a>,
-    <a href="https://www.tri.global/">Phoebe Horgan</a>,
-    <a href="https://www.tri.global/">Gordon Richardson</a>,
-    <a href="https://www.tri.global/">Siyuan Feng</a>,
-    <a href="https://www.tri.global/">Benjamin Burchfiel</a>
-    <br>
-    <em>arXiv</em>, 2024
-    <br>
-    <a href="https://arxiv.org/abs/2409.09491">arXiv</a>
-    <p></p>
-    <p>
-      Proposes best practices for robot policy evaluation including detailed success criteria, statistical analysis, and failure mode characterization. Demonstrates evaluation on manipulation tasks with multiple metrics beyond success rate.
-    </p>
-  </td>
-</tr>
-
-<!-- SoftBubble Grippers -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://ieeexplore.ieee.org/document/9341534">
-      <img src='images/softbubble.jpg' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://ieeexplore.ieee.org/document/9341534">
-      <span class="papertitle">Soft-bubble Grippers for Robust and Perceptive Manipulation</span>
-    </a>
-    <br>
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Alex Alspach</a>,
-    <a href="https://www.tri.global/">Avinash Uttamchandani</a>,
-    <a href="https://www.tri.global/">Sam Creasey</a>,
-    <a href="https://www.tri.global/">Takuya Ikeda</a>,
-    <a href="https://groups.csail.mit.edu/locomotion/russt.html">Russ Tedrake</a>
-    <br>
-    <em>IROS</em>, 2020 &nbsp; 
-    <br>
-    <a href="https://punyo.tech/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2004.03691">arXiv</a>
-    /
-    <a href="https://ieeexplore.ieee.org/document/9341534">paper</a>
-    <p></p>
-    <p>
-      A highly-compliant bubble gripper combining soft robotics with dense geometry visuotactile sensing through embedded cameras, enabling robust grasping and precise pose estimation for contact-rich manipulation. Winner of the 2019 RA-L Best Paper Award.
-    </p>
-  </td>
-</tr>
-
-<!-- Punyo-1 -->
-<tr>
-  <td style="padding:20px;width:28%;vertical-align:middle">
-    <a href="https://arxiv.org/abs/2111.09354">
-      <img src='images/punyo.jpg' width="100%" style="border-radius:8px;">
-    </a>
-  </td>
-  <td style="padding:20px;width:72%;vertical-align:middle">
-    <a href="https://arxiv.org/abs/2111.09354">
-      <span class="papertitle">Punyo-1: Soft Tactile-Sensing Upper-Body Robot for Large Object Manipulation and Physical Human Interaction</span>
-    </a>
-    <br>
-    <a href="https://www.tri.global/">Aimee Goncalves</a>,
-    <strong>Naveen Kuppuswamy</strong>,
-    <a href="https://www.tri.global/">Andrew Beaulieu</a>,
-    <a href="https://www.tri.global/">Avinash Uttamchandani</a>,
-    <a href="https://www.tri.global/">Katherine M. Tsui</a>,
-    <a href="https://www.tri.global/">Alex Alspach</a>
-    <br>
-    <em>RoboSoft</em>, 2022
-    <br>
-    <a href="https://punyo.tech/">project page</a>
-    /
-    <a href="https://arxiv.org/abs/2111.09354">arXiv</a>
-    <p></p>
-    <p>
-      A soft, tactile-sensing humanoid upper-body robot demonstrating whole-body rich-contact manipulation strategies for handling large domestic objects. Features low-cost tactile coverings, Soft-bubble sensor paws, and compliant force/geometry sensing for safe human-robot interaction.
-    </p>
-  </td>
-</tr>
-
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Website template from <a href="https://jonbarron.info/">Jon Barron</a>
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+    <main class="main-wrap">
+        <h2>About Me</h2>
+        <img src="images/naveen_kuka.jpg" class="about-photo" alt="Naveen at TRI">
+        <p>I am a Senior Research Scientist and the Tactile Perception and Control Lead at the <strong>Toyota Research Institute (TRI)</strong> in Cambridge, MA. My work focuses on tactile-perception, control, and soft-robotics for robust manipulation in home environments.</p>
+        <p>Previously, I was a Post-Doc at IIT Genova and a visiting researcher at the University of Zürich. I hold a PhD in AI from the <strong>University of Zürich</strong> (Marie Curie Fellow) and an MS from <strong>KAIST</strong>.</p>
+        <p>I also served as the Project Manager for DWENGO, a non-profit taking robotics to under-privileged children worldwide.</p>
+    </main>
+</body>
 </html>
