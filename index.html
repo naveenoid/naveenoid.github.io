@@ -5,38 +5,542 @@
     <title>Naveen Kuppuswamy | Roboticist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent-color: #f66; --text-main: #333; --text-muted: #666; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); line-height: 1.5; background: #fff; margin: 0; }
+        .main-wrap { max-width: 950px; margin: 0 auto; padding: 20px 20px 60px 20px; }
+        
+        /* Header & Spacing */
+        header.top-area { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0px; }
+        h1.name { font-family: 'Source Serif Pro', serif; font-size: 2.6rem; font-weight: 700; margin: 0; }
+        .blurb { font-size: 1.1rem; color: var(--text-muted); margin: 0px 0 5px 0; }
+        .social-links { font-size: 0.95rem; font-weight: 500; }
+        .profile-thumb img { width: 170px; height: 200px; object-fit: cover; border-radius: 50% / 35%; border: 1px solid #eee; }
+
+        /* Titles */
+        .section-title { font-family: 'Source Serif Pro', serif; font-size: 1.6rem; border-bottom: 1px solid #eee; padding-bottom: 6px; margin: 30px 0 20px; }
+        
+        /* Highlighted Publications - Deitke Style */
+        .pub-table { width: 100%; border-spacing: 0 40px; border-collapse: separate; }
+        .pub-media-container { 
+            position: relative; width: 100%; height: 200px; border-radius: 8px; overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); background: #fff; 
+        }
+        .pub-media-container img { width: 100%; height: 100%; display: block; object-fit: cover; }
+        .pub-media-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s; z-index: 10; }
+        .pub-media-container:hover video { opacity: 1; }
+        .pub-media-container iframe { width: 100%; height: 100%; border: 0; }
+
+        .papertitle { font-family: 'Source Serif Pro', serif; font-size: 1.2rem; font-weight: 700; color: #222; text-decoration: none; display: block; margin-bottom: 8px; line-height: 1.3; }
+        .papertitle:hover { color: #555; }
+        .authors { font-size: 0.95rem; color: #888; line-height: 1.4; margin-bottom: 6px; font-weight: 400; }
+        .venue { font-size: 0.95rem; font-weight: 600; color: #444; margin-bottom: 10px; display: block; }
+        .award { color: #d9534f; font-weight: bold; margin-left: 5px; font-size: 0.9rem; }
+        .abstract-verbose { font-size: 1rem; color: #666; margin-top: 10px; line-height: 1.6; font-weight: 400; }
+        
+        /* Link icons - Deitke style */
+        .pub-links-highlight { margin-top: 10px; }
+        .pub-links-highlight a { display: inline-block; padding: 4px 12px; margin-right: 8px; margin-top: 4px; font-size: 0.85rem; font-weight: 600; text-decoration: none; border-radius: 4px; background: #f5f5f5; color: #555; transition: all 0.2s; }
+        .pub-links-highlight a:hover { background: #e5e5e5; color: #333; }
+        .pub-links-highlight a::before { content: "📄 "; }
+        .pub-links-highlight a[href*="arxiv"]::before { content: "📝 "; }
+        .pub-links-highlight a[href*="github"]::before { content: "💻 "; }
+        .pub-links-highlight a[href*="youtube"]::before, .pub-links-highlight a[href*="youtu.be"]::before { content: "▶️ "; }
+
+        /* Publication List */
+        .pub-list { list-style: none; padding: 0; margin: 20px 0; }
+        .pub-year-header { font-family: 'Source Serif Pro', serif; font-size: 1.2rem; font-weight: 700; color: #444; margin: 25px 0 12px 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+        .pub-list li { margin-bottom: 12px; line-height: 1.6; }
+        .pub-list .pub-title { font-weight: 600; color: #222; font-size: 0.92rem; }
+        .pub-list .pub-authors { font-size: 0.88rem; color: #666; display: block; margin-top: 2px; }
+        .pub-list .pub-venue { color: #2563eb; font-weight: 600; font-size: 0.9rem; display: block; margin-top: 2px; }
+        .pub-list .award-marker { color: #d9534f; font-weight: bold; font-size: 0.82rem; margin-left: 6px; }
+        .pub-list .pub-links { display: inline; margin-left: 8px; }
+        .pub-list .pub-link { display: inline-block; padding: 2px 6px; margin-left: 4px; font-size: 0.7rem; font-weight: 600; text-decoration: none; border-radius: 3px; background: #f3f4f6; color: #4b5563; }
+        .pub-list .pub-link:hover { background: #e5e7eb; }
+        .pub-list .pub-link.arxiv, .pub-list .pub-link.pdf { background: #dc2626; color: white; }
+        .pub-list .pub-link.project { background: #2563eb; color: white; }
+
+        /* Patent List */
+        .patent-list { list-style: none; padding: 0; margin: 20px 0; }
+        .patent-list li { margin-bottom: 12px; line-height: 1.6; }
+        .patent-year-header { font-family: 'Source Serif Pro', serif; font-size: 1.2rem; font-weight: 700; color: #444; margin: 25px 0 12px 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+        .patent-list .patent-title { font-weight: 600; color: #222; font-size: 0.92rem; }
+        .patent-list .patent-authors { font-size: 0.88rem; color: #666; display: block; margin-top: 2px; }
+        .patent-list .patent-number { color: #2563eb; font-weight: 600; font-size: 0.9rem; display: block; margin-top: 2px; }
+
+        /* Talks Table */
+        .talk-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .talk-table td { padding: 15px 0; border-bottom: 1px solid #f5f5f5; vertical-align: middle; }
+        .uni-logo { width: 60px; opacity: 0.8; display: block; margin: 0 auto; }
+
+        /* Gallery Collage */
+        .gallery-collage { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+        .collage-item { position: relative; border-radius: 4px; overflow: hidden; cursor: pointer; }
+        .collage-item img { width: 100%; height: 130px; object-fit: cover; transition: transform 0.3s; }
+        .collage-item:hover img { transform: scale(1.1); }
+        .collage-cap { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 4px; text-align: center; opacity: 0; transition: 0.2s; }
+        .collage-item:hover .collage-cap { opacity: 1; }
+    </style>
 </head>
 <body>
-    <header class="sticky-header">
-        <div class="header-content">
-            <div style="flex: 1;">
+    <main class="main-wrap">
+        <header class="top-area">
+            <div>
                 <h1 class="name">Naveen Kuppuswamy</h1>
-                <p class="blurb">Roboticist, Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a></p>
+                <p class="blurb">Senior Research Scientist, Toyota Research Institute</p>
+                <p class="blurb" style="font-size: 0.95rem; margin-top: -3px; color: #888;">Robot Foundation Models | Tactile & Multimodal Learning | Humanoid Manipulation</p>
                 <div class="social-links">
-                    <a href="mailto:naveen.sk@gmail.com">Email</a> / 
-                    <a href="data/Naveen_CV.pdf">CV</a> / 
-                    <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> / 
-                    <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
+                    <a href="/cdn-cgi/l/email-protection#147a756271717a3a677f547379757d783a777b79">Email</a> / <a href="data/Naveen_CV.pdf">CV</a> / <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> / <a href="https://github.com/naveenoid">GitHub</a> / <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
                 </div>
             </div>
-            <div class="profile-thumb">
-                <img src="images/IMG_0001.png" alt="Naveen Kuppuswamy profile">
-            </div>
-        </div>
-        <nav class="nav-menu">
-            <a href="index.html" class="active">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="publications.html">Publications</a>
-            <a href="media.html">Media</a>
-        </nav>
-    </header>
+            <div class="profile-thumb"><img src="images/IMG_0001.png" alt="Naveen Kuppuswamy"></div>
+        </header>
 
-    <main class="main-wrap">
-        <h2>About Me</h2>
-        <img src="images/naveen_kuka.jpg" class="about-photo" alt="Naveen at TRI">
-        <p>I am a Senior Research Scientist and the Tactile Perception and Control Lead at the <strong>Toyota Research Institute (TRI)</strong> in Cambridge, MA. My work focuses on tactile-perception, control, and soft-robotics for robust manipulation in home environments.</p>
-        <p>Previously, I was a Post-Doc at IIT Genova and a visiting researcher at the University of Zürich. I hold a PhD in AI from the <strong>University of Zürich</strong> (Marie Curie Fellow) and an MS from <strong>KAIST</strong>.</p>
-        <p>I also served as the Project Manager for DWENGO, a non-profit taking robotics to under-privileged children worldwide.</p>
-    </main>
-</body>
-</html>
+        <section id="about">
+            <h2 class="section-title" style="margin-top: 10px;">About Me</h2>
+            <p>I am a Senior Research Scientist in the Large Behavior Models division at Toyota Research Institute. My research explores how tactile and haptic sensing can enhance foundation models for contact-rich manipulation in unstructured environments.</p>
+            
+            <p>Over the past decade, I have worked across whole-body tactile sensing, soft robotics, and Large Behavior Models (LBMs) for robot manipulation, previously serving as Robot Data Lead and Tactile Perception & Control Lead at TRI. My current research focuses on haptic-informed foundation models and multimodal LBMs for humanoid manipulation.</p>
+            
+            <p>My key contributions include the Soft-bubble (Punyo) gripper and PolyTouch sensor systems. My work spans 50+ publications (900+ citations), multiple patents, and awards including Best Paper at ICRA 2025, IEEE RA-L 2020, and Best Student Paper Finalist at RSS 2017.</p>
+            
+            <p>I hold a PhD from the University of Zurich, MS from KAIST, and BE from Anna University. I am driven by building robotic systems that enhance human capability and independence.</p>
+        </section>
+
+        <section id="selected-publications">
+            <h2 class="section-title">Highlighted Publications</h2>
+            <table class="pub-table">
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/polytouch_with_tool.jpg" alt="PolyTouch">
+                            <video muted loop playsinline><source src="images/polytouch_demo.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://polytouch.alanz.info/" class="papertitle">PolyTouch: A Robust Multi-Modal Tactile Sensor for Contact-rich Manipulation</a>
+                        <div class="authors">J. Zhao, <strong>Naveen Kuppuswamy</strong>, S. Feng, B. Burchfiel, E. Adelson</div>
+                        <div class="venue">ICRA 2025 <span class="award">🏆 Best Paper Award, Field and Service Robotics</span></div>
+                        <div class="abstract-verbose">A robust multi-modal robot finger combining tactile, acoustic, and peripheral vision sensing. This work demonstrates how rich haptic feedback fundamentally improves robot learning in complex environments by providing essential inductive biases.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://arxiv.org/abs/2504.19341">arXiv</a>
+                            <a href="https://polytouch.alanz.info/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/lbm_improvement.png" alt="LBM">
+                            <video muted loop playsinline><source src="images/apple.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://toyotaresearchinstitute.github.io/lbm1/" class="papertitle">A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation</a>
+                        <div class="authors" style="font-size: 0.85rem;">TRI LBM Team, J. Barreiros, A. Beaulieu, A. Bhat, R. Cory, E. Cousineau, H. Dai, C.H. Fang, K. Hashimoto, M.Z. Irshad, M. Itkina, <strong>N. Kuppuswamy</strong>, K.H. Lee, K. Liu, D. McConachie, I. McMahon, H. Nishimura, C. Phillips-Grafflin, C. Richter, P. Shah, K. Srinivasan, B. Wulfe, C. Xu, M. Zhang, A. Alspach, M. Angeles, K. Arora, V.C. Guizilini, A. Castro, D. Chen, T.S. Chu, S. Creasey, S. Curtis, R. Denitto, E. Dixon, E. Dusel, M. Ferreira, A. Goncalves, G. Gould, D. Guoy, S. Gupta, X. Han, K. Hatch, B. Hathaway, A. Henry, H. Hochsztein, P. Horgan, S. Iwase, D. Jackson, S. Karamcheti, S. Keh, J. Masterjohn, J. Mercat, P. Miller, P. Mitiguy, T. Nguyen, J. Nimmer, Y. Noguchi, R. Ong, A. Onol, O. Pfannenstiehl, R. Poyner, L. Rocha, G. Richardson, C. Rodriguez, D. Seale, M. Sherman, M. Smith-Jones, D. Tago, P. Tokmakov, M. Tran, B. Van Hoorick, I. Vasiljevic, S. Zakharov, M. Zolotas, R. Ambrus, K. Fetzer-Borelli, B. Burchfiel, H. Kress-Gazit, S. Feng, S. Ford, R. Tedrake</div>
+                        <div class="venue">arXiv 2025</div>
+                        <div class="abstract-verbose">A rigorous evaluation of Large Behavior Models (LBMs) through 1,800+ real-world trials, demonstrating that multitask pretraining on diverse robot data significantly improves robustness in dexterous manipulation tasks.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://arxiv.org/abs/2507.05331">arXiv</a>
+                            <a href="https://toyotaresearchinstitute.github.io/lbm1/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/audio_attention.png" alt="ManiWAV">
+                            <video muted loop playsinline><source src="images/maniwav_demo.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://mani-wav.github.io/" class="papertitle">ManiWAV: Learning Robot Manipulation from Audio-Visual Data</a>
+                        <div class="authors">Z. Liu, C. Chi, E. Cousineau, <strong>N. Kuppuswamy</strong>, B. Burchfiel, S. Song</div>
+                        <div class="venue">CoRL 2024</div>
+                        <div class="abstract-verbose">An "ear-in-hand" gripper design that leverages in-the-wild audio-visual data to learn contact-rich tasks without traditional force sensing.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://arxiv.org/abs/2406.19464">arXiv</a>
+                            <a href="https://mani-wav.github.io/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/adaptive_compliance.png" alt="Adaptive Compliance">
+                            <video muted loop playsinline><source src="images/adaptive_compliance.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://adaptive-compliance.github.io/" class="papertitle">Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control</a>
+                        <div class="authors">Y. Hou, Z. Liu, C. Chi, E. Cousineau, <strong>N. Kuppuswamy</strong>, S. Feng, B. Burchfiel, S. Song</div>
+                        <div class="venue">ICRA 2025</div>
+                        <div class="abstract-verbose">A policy framework that dynamically adjusts robot stiffness based on human demonstrations. By utilizing diffusion-guided control, the robot exhibits spatial and temporal compliance tailored to task phases, improving safety in handovers and assembly.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://adaptive-compliance.github.io/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/soft_bubble_intefact.jpg" alt="Soft-bubble">
+                            <video muted loop playsinline><source src="images/softbubble_demo.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://punyo.tech/" class="papertitle">Soft-bubble Grippers for Robust and Perceptive Manipulation</a>
+                        <div class="authors"><strong>N. Kuppuswamy</strong>, A. Alspach, A. Uttamchandani, S. Creasey, T. Ikeda, R. Tedrake</div>
+                        <div class="venue">IROS 2020</div>
+                        <div class="abstract-verbose">A compliant bubble gripper that uses internal cameras to track dense surface deformation, allowing for high-fidelity geometry sensing while maintaining the safety benefits of soft robot interfaces.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://ieeexplore.ieee.org/document/9341534">IEEE</a>
+                            <a href="https://punyo.tech/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container" onmouseover="this.querySelector('video')?.play()" onmouseout="var v=this.querySelector('video'); if(v){v.pause(); v.currentTime=0;}">
+                            <img src="images/punyo_1.png" alt="Punyo-1">
+                            <video muted loop playsinline><source src="images/punyo_demo.mp4" type="video/mp4"></video>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://punyo.tech/" class="papertitle">Punyo-1: Soft Tactile-Sensing Upper-Body Robot for Large Object Manipulation</a>
+                        <div class="authors">A. Goncalves, <strong>N. Kuppuswamy</strong>, A. Beaulieu, A. Uttamchandani, K.M. Tsui, A. Alspach</div>
+                        <div class="venue">RoboSoft 2022</div>
+                        <div class="abstract-verbose">Punyo-1 is a soft humanoid upper-body robot that utilizes dense tactile skin to perform whole-body manipulation. We demonstrate non-prehensile "hugging" strategies for carrying large, bulky objects safely.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://arxiv.org/abs/2111.09354">arXiv</a>
+                            <a href="https://punyo.tech/">Project</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container">
+                            <img src="images/contact_patch_placeholder.png" alt="Contact Patch">
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://groups.csail.mit.edu/robotics-center/public_papers/Kuppuswamy20.pdf" class="papertitle">Fast Model-based Contact Patch and Pose Estimation for Highly Deformable Dense-Geometry Tactile Sensors</a>
+                        <div class="authors"><strong>Naveen Kuppuswamy</strong>, A. Castro, C. Phillips-Grafflin, A. Alspach, R. Tedrake</div>
+                        <div class="venue">IEEE Robotics and Automation Letters (RA-L), 2020 <span class="award">🏆 Best Paper Award</span></div>
+                        <div class="abstract-verbose">A fast model-based approach for estimating contact patches and object pose from highly deformable tactile sensors, enabling real-time manipulation feedback.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://groups.csail.mit.edu/robotics-center/public_papers/Kuppuswamy20.pdf">PDF</a>
+                            <a href="https://ieeexplore.ieee.org/document/8936859">IEEE</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:32%; vertical-align:top;">
+                        <div class="pub-media-container">
+                            <iframe src="https://www.youtube.com/embed/s9zb5MRXiHA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </td>
+                    <td style="width:68%; padding-left:30px; vertical-align:top;">
+                        <a href="https://dspace.mit.edu/handle/1721.1/124528" class="papertitle">Fast Trajectory Optimization for Agile Quadrotor Maneuvers with a Cable-Suspended Payload</a>
+                        <div class="authors">P. Foehn, D. Falanga, <strong>Naveen Kuppuswamy</strong>, R. Tedrake, D. Scaramuzza</div>
+                        <div class="venue">Robotics: Science and Systems (RSS), 2017 <span class="award">🏆 Best Student Paper Finalist</span></div>
+                        <div class="abstract-verbose">A trajectory optimization framework for aggressive quadrotor flight with cable-suspended payloads, demonstrating high-speed maneuvers through constrained environments.</div>
+                        <div class="pub-links-highlight">
+                            <a href="https://dspace.mit.edu/handle/1721.1/124528">PDF</a>
+                            <a href="https://www.youtube.com/watch?v=s9zb5MRXiHA">Video</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="all-publications">
+            <h2 class="section-title">Publications</h2>
+            <ul class="pub-list">
+                <h3 class="pub-year-header">2025</h3>
+                <li>
+                    <div class="pub-title">A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation.</div>
+                    <div class="pub-authors">TRI LBM Team, J. Barreiros, A. Beaulieu, A. Bhat, R. Cory, E. Cousineau, H. Dai, C.H. Fang, K. Hashimoto, M.Z. Irshad, M. Itkina, <strong>N. Kuppuswamy</strong>, K.H. Lee, K. Liu, D. McConachie, I. McMahon, H. Nishimura, C. Phillips-Grafflin, C. Richter, P. Shah, K. Srinivasan, B. Wulfe, C. Xu, M. Zhang, A. Alspach, M. Angeles, K. Arora, V.C. Guizilini, A. Castro, D. Chen, T.S. Chu, S. Creasey, S. Curtis, R. Denitto, E. Dixon, E. Dusel, M. Ferreira, A. Goncalves, G. Gould, D. Guoy, S. Gupta, X. Han, K. Hatch, B. Hathaway, A. Henry, H. Hochsztein, P. Horgan, S. Iwase, D. Jackson, S. Karamcheti, S. Keh, J. Masterjohn, J. Mercat, P. Miller, P. Mitiguy, T. Nguyen, J. Nimmer, Y. Noguchi, R. Ong, A. Onol, O. Pfannenstiehl, R. Poyner, L. Rocha, G. Richardson, C. Rodriguez, D. Seale, M. Sherman, M. Smith-Jones, D. Tago, P. Tokmakov, M. Tran, B. Van Hoorick, I. Vasiljevic, S. Zakharov, M. Zolotas, R. Ambrus, K. Fetzer-Borelli, B. Burchfiel, H. Kress-Gazit, S. Feng, S. Ford, R. Tedrake</div>
+                    <div class="pub-venue">arXiv preprint, 2025
+                        <span class="pub-links"><a href="https://arxiv.org/abs/2507.05331" class="pub-link arxiv">arXiv</a><a href="https://toyotaresearchinstitute.github.io/lbm1/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">PolyTouch: A Robust Multi-Modal Tactile Sensor for Contact-rich Manipulation Using Tactile-Diffusion Policies.</div>
+                    <div class="pub-authors">J. Zhao, <strong>N. Kuppuswamy</strong>, S. Feng, B. Burchfiel, E. Adelson</div>
+                    <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), Atlanta, GA, 2025
+                        <span class="award-marker">🏆 Best Paper Award</span>
+                        <span class="pub-links"><a href="https://arxiv.org/abs/2504.19341" class="pub-link arxiv">arXiv</a><a href="https://polytouch.alanz.info/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">Proximity and Visuotactile Point Cloud Fusion for Contact Patches in Extreme Deformation.</div>
+                    <div class="pub-authors">J. Yin, P. Shah, <strong>N. Kuppuswamy</strong>, A. Beaulieu, A. Uttamchandani, A. Castro, J. Pikul, R. Tedrake</div>
+                    <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), Atlanta, GA, 2025</div>
+                </li>
+                <li>
+                    <div class="pub-title">Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control.</div>
+                    <div class="pub-authors">Y. Hou, Z. Liu, C. Chi, E. Cousineau, <strong>N. Kuppuswamy</strong>, S. Feng, B. Burchfiel, S. Song</div>
+                    <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), Atlanta, GA, 2025
+                        <span class="pub-links"><a href="https://adaptive-compliance.github.io/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">Vegetable Peeling: A Case Study in Constrained Dexterous Manipulation.</div>
+                    <div class="pub-authors">T. Chen, E. Cousineau, <strong>N. Kuppuswamy</strong>, P. Agrawal</div>
+                    <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), Atlanta, GA, 2025</div>
+                </li>
+
+                <h3 class="pub-year-header">2024</h3>
+                <li>
+                    <div class="pub-title">ManiWAV: Learning Robot Manipulation from In-the-Wild Audio-Visual Data.</div>
+                    <div class="pub-authors">Z. Liu, C. Chi, E. Cousineau, <strong>N. Kuppuswamy</strong>, B. Burchfiel, S. Song</div>
+                    <div class="pub-venue">Conference on Robot Learning (CoRL), Munich, Germany, 2024
+                        <span class="pub-links"><a href="https://arxiv.org/abs/2406.19464" class="pub-link arxiv">arXiv</a><a href="https://mani-wav.github.io/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">CHG-DAgger: Interactive Imitation Learning with Human-Policy Cooperative Control.</div>
+                    <div class="pub-authors">T. Takahashi, Y. Ishida, T. Kanai, <strong>N. Kuppuswamy</strong></div>
+                    <div class="pub-venue">CoRL 2024 Workshop on Advancing Learning for Human-Centered Collaborative Robots, Munich, Germany, 2024</div>
+                </li>
+                <li>
+                    <div class="pub-title">Robot Learning as an Empirical Science: Best Practices for Policy Evaluation.</div>
+                    <div class="pub-authors">H. Kress-Gazit, K. Hashimoto, <strong>N. Kuppuswamy</strong>, P. Shah, P. Horgan, G. Richardson, S. Feng, B. Burchfiel</div>
+                    <div class="pub-venue">arXiv preprint, 2024
+                        <span class="pub-links"><a href="https://arxiv.org/abs/2409.09491" class="pub-link arxiv">arXiv</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">Stretch with Stretch: Physical Therapy Exercise Games Led by a Mobile Manipulator.</div>
+                    <div class="pub-authors">M. Lamsey, Y.L. Tan, M.D. Wells, M. Beatty, Z. Liu, A. Majumdar, K. Washington, J. Feldman, <strong>N. Kuppuswamy</strong>, E. Nguyen, C. Kemp</div>
+                    <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), Yokohama, Japan, 2024</div>
+                </li>
+
+                <h3 class="pub-year-header">2022</h3>
+                <li>
+                    <div class="pub-title">Punyo-1: Soft Tactile-Sensing Upper-Body Robot for Large Object Manipulation and Physical Human Interaction.</div>
+                    <div class="pub-authors">A. Goncalves, <strong>N. Kuppuswamy</strong>, A. Beaulieu, A. Uttamchandani, K.M. Tsui, A. Alspach</div>
+                    <div class="pub-venue">IEEE International Conference on Soft Robotics (RoboSoft), Edinburgh, UK, 2022
+                        <span class="pub-links"><a href="https://punyo.tech/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">SEED: Series Elastic End Effectors in 6D for Visuotactile Tool Use.</div>
+                    <div class="pub-authors">H.J.T. Suh, <strong>N. Kuppuswamy</strong>, T. Pang, P. Mitiguy, A. Alspach, R. Tedrake</div>
+                    <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Kyoto, Japan, 2022</div>
+                </li>
+
+                <h3 class="pub-year-header">2021</h3>
+                <li>
+                    <div class="pub-title">Monocular Depth Estimation for Soft Visuotactile Sensors.</div>
+                    <div class="pub-authors">R. Ambrus, V. Guizilini, <strong>N. Kuppuswamy</strong>, A. Beaulieu, A. Gaidon, A. Alspach</div>
+                    <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Prague, Czech Republic, 2021</div>
+                </li>
+
+                <h3 class="pub-year-header">2020</h3>
+                <li>
+                    <div class="pub-title">Soft-bubble Grippers for Robust and Perceptive Manipulation.</div>
+                    <div class="pub-authors"><strong>N. Kuppuswamy</strong>, A. Alspach, A. Uttamchandani, S. Creasey, T. Ikeda, R. Tedrake</div>
+                    <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Las Vegas, NV, 2020
+                        <span class="pub-links"><a href="https://punyo.tech/" class="pub-link project">Project</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">Fast Model-based Contact Patch and Pose Estimation for Highly Deformable Dense-Geometry Tactile Sensors.</div>
+                    <div class="pub-authors"><strong>N. Kuppuswamy</strong>, A. Castro, C. Phillips-Grafflin, A. Alspach, R. Tedrake</div>
+                    <div class="pub-venue">IEEE Robotics and Automation Letters (RA-L), vol. 5, no. 2, pp. 1811-1818, 2020
+                        <span class="award-marker">🏆 Best Paper Award</span>
+                        <span class="pub-links"><a href="https://groups.csail.mit.edu/robotics-center/public_papers/Kuppuswamy20.pdf" class="pub-link pdf">PDF</a></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pub-title">A Transition-Aware Method for the Simulation of Compliant Contact with Regularized Friction.</div>
+                    <div class="pub-authors">A.M. Castro, A. Qu, <strong>N. Kuppuswamy</strong>, A. Alspach, M. Sherman</div>
+                    <div class="pub-venue">IEEE Robotics and Automation Letters (RA-L), vol. 5, no. 2, pp. 1859-1866, 2020</div>
+                </li>
+
+                <h3 class="pub-year-header">2019</h3>
+                <li>
+                    <div class="pub-title">Soft-bubble: A Highly Compliant Dense Geometry Tactile Sensor for Robot Manipulation.</div>
+                    <div class="pub-authors">A. Alspach, K. Hashimoto, <strong>N. Kuppuswamy</strong>, R. Tedrake</div>
+                    <div class="pub-venue">IEEE International Conference on Soft Robotics (RoboSoft), Seoul, South Korea, 2019</div>
+                </li>
+
+                <h3 class="pub-year-header">2017</h3>
+                <li>
+                    <div class="pub-title">Fast Trajectory Optimization for Agile Quadrotor Maneuvers with a Cable-Suspended Payload.</div>
+                    <div class="pub-authors">P. Foehn, D. Falanga, <strong>N. Kuppuswamy</strong>, R. Tedrake, D. Scaramuzza</div>
+                    <div class="pub-venue">Robotics: Science and Systems (RSS), Cambridge, MA, 2017
+                        <span class="award-marker">🏆 Best Student Paper Finalist</span>
+                        <span class="pub-links"><a href="https://dspace.mit.edu/handle/1721.1/124528" class="pub-link pdf">PDF</a></span>
+                    </div>
+                </li>
+
+                <h3 class="pub-year-header">2016</h3>
+                <li>
+                    <div class="pub-title">Whole-body Human Inverse Dynamics with Distributed Micro-accelerometers, Gyros and Force Sensing.</div>
+                    <div class="pub-authors">C. Latella, <strong>N. Kuppuswamy</strong>, F. Romano, S. Traversaro, F. Nori</div>
+                    <div class="pub-venue">Sensors, vol. 16, no. 5, p. 727, 2016</div>
+                </li>
+                <li>
+                    <div class="pub-title">Self-calibration of Joint Offsets for Humanoid Robots Using Accelerometer Measurements.</div>
+                    <div class="pub-authors">N. Guedelha, <strong>N. Kuppuswamy</strong>, S. Traversaro, F. Nori</div>
+                    <div class="pub-venue">IEEE-RAS International Conference on Humanoid Robots (Humanoids), Cancun, Mexico, 2016</div>
+                </li>
+
+                <h3 class="pub-year-header">2015</h3>
+                <li>
+                    <div class="pub-title">Simultaneous State and Dynamics Estimation in Articulated Structures.</div>
+                    <div class="pub-authors">F. Nori, <strong>N. Kuppuswamy</strong>, S. Traversaro</div>
+                    <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Hamburg, Germany, 2015</div>
+                </li>
+
+                <h3 class="pub-year-header">2014</h3>
+                <li>
+                    <div class="pub-title">Do Muscle Synergies Reduce the Dimensionality of Behavior?</div>
+                    <div class="pub-authors"><strong>N. Kuppuswamy</strong>, C.M. Harris</div>
+                    <div class="pub-venue">Frontiers in Computational Neuroscience, vol. 8, p. 63, 2014</div>
+                </li>
+
+                <h3 class="pub-year-header">2013</h3>
+                <li>
+                    <div class="pub-title">Exploiting Reduced Dimensionality in the Design and Control of Embodied Systems.</div>
+                    <div class="pub-authors"><strong>N.S. Kuppuswamy</strong></div>
+                    <div class="pub-venue">PhD Thesis, University of Zurich, Switzerland, 2013</div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="patents">
+            <h2 class="section-title">Patents</h2>
+            <ul class="patent-list">
+                <h3 class="patent-year-header">2025</h3>
+                <li>
+                    <div class="patent-title">Deformable Sensors Having an Internal Stereo Depth Sensor and an Infrared Sensor.</div>
+                    <div class="patent-authors">A. Beaulieu, <strong>N.S. Kuppuswamy</strong>, J. Yin</div>
+                    <div class="patent-number">US Patent 12,498,272 (December 2025)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Systems and Methods for Calibrating Deformable Sensors.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong></div>
+                    <div class="patent-number">US Patent 12,304,088 (May 2025)</div>
+                </li>
+
+                <h3 class="patent-year-header">2024</h3>
+                <li>
+                    <div class="patent-title">Systems for Determining Location Using Robots with Deformable Sensors.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani, S.F. Creasey, R.L. Tedrake, K. Hashimoto, E.C. Sobel, T. Ikeda</div>
+                    <div class="patent-number">US Patent 11,951,633 (April 2024)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Robust and Perceptive Manipulation Through Soft-bubble Grippers and Monocular Depth.</div>
+                    <div class="patent-authors">R.A. Ambrus, V. Guizilini, <strong>N.S. Kuppuswamy</strong>, A.M. Beaulieu, A.D. Gaidon, A. Alspach</div>
+                    <div class="patent-number">US Patent 12,151,361 (November 2024)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Systems and Methods for Estimating Shape, Contact Forces, and Pose of Objects Manipulated by Robots Having Compliant Contact and Geometry Sensors.</div>
+                    <div class="patent-authors"><strong>N. Kuppuswamy</strong>, A.M. Castro, A. Alspach</div>
+                    <div class="patent-number">US Patent 12,048,998 (July 2024)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Deformable Sensors and Methods Using Magnetic Repulsion for Modifying Run-time Membrane Stiffness.</div>
+                    <div class="patent-authors">M.L. Kuehner, <strong>N.S. Kuppuswamy</strong></div>
+                    <div class="patent-number">US Patent 11,920,992 (March 2024)</div>
+                </li>
+
+                <h3 class="patent-year-header">2023</h3>
+                <li>
+                    <div class="patent-title">Robot Arm Assemblies Including Fingers Having Deformable Sensors.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani, S.F. Creasey, R.L. Tedrake, K. Hashimoto, E.C. Sobel, T. Ikeda</div>
+                    <div class="patent-number">US Patent 11,806,864 (November 2023)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Deformable Sensors and Methods for Modifying Run-time Membrane Stiffness Using Magnetic Attraction.</div>
+                    <div class="patent-authors">M.L. Kuehner, <strong>N.S. Kuppuswamy</strong>, H. Yasuda</div>
+                    <div class="patent-number">US Patent 11,740,065 (August 2023)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Input Devices Having a Deformable Membrane and Methods of Using the Same.</div>
+                    <div class="patent-authors">A. Agnihotri, <strong>N.S. Kuppuswamy</strong>, A. Alspach, K. Tsui</div>
+                    <div class="patent-number">US Patent 11,819,999 (November 2023)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Systems and Methods for Estimating Shape, Contact Forces, and Pose of Objects Manipulated by Robots Having Compliant Contact and Geometry Sensors.</div>
+                    <div class="patent-authors"><strong>N. Kuppuswamy</strong>, A.M. Castro, A. Alspach</div>
+                    <div class="patent-number">US Patent 11,667,039 (June 2023)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Variable Geometry and Stiffness Control for Fluid Filled Sensor.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani</div>
+                    <div class="patent-number">US Patent 11,585,715 (February 2023)</div>
+                </li>
+
+                <h3 class="patent-year-header">2022</h3>
+                <li>
+                    <div class="patent-title">Deformable Sensor with Rotatable Sensing Components for Detecting Deformation Levels.</div>
+                    <div class="patent-authors"><strong>N.S. Kuppuswamy</strong>, A. Alspach</div>
+                    <div class="patent-number">US Patent 11,472,039 (October 2022)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Variable Geometry and Stiffness Control for Fluid Filled Sensor.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani</div>
+                    <div class="patent-number">US Patent 11,408,788 (August 2022)</div>
+                </li>
+                <li>
+                    <div class="patent-title">Methods and Systems for Calibrating Deformable Sensors Using Camera.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani</div>
+                    <div class="patent-number">US Patent 11,536,621 (December 2022)</div>
+                </li>
+
+                <h3 class="patent-year-header">2021</h3>
+                <li>
+                    <div class="patent-title">Deformable Sensors Having Multiple Time-of-Flight Emitters.</div>
+                    <div class="patent-authors">A. Alspach, <strong>N.S. Kuppuswamy</strong>, A. Uttamchandani</div>
+                    <div class="patent-number">US Patent 11,185,994 (November 2021)</div>
+                </li>
+
+                <h3 class="patent-year-header">2020</h3>
+                <li>
+                    <div class="patent-title">Systems and Methods of Calibrating a Depth-IR Image Offset.</div>
+                    <div class="patent-authors">D. Ta-Huynh, A. Alspach, <strong>N.S. Kuppuswamy</strong></div>
+                    <div class="patent-number">US Patent 10,628,968 (April 2020)</div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="talks">
+            <h2 class="section-title">Invited Talks</h2>
+            <table class="talk-table">
+                <tr>
+                    <td style="width:15%;"><img src="images/ut_austin_logo.png" class="uni-logo"></td>
+                    <td><strong>UT Austin</strong> (Host: Prof. Lilian Chin), 2025: <em>Robots that feel: Scalable foundation models</em></td>
+                </tr>
+                <tr>
+                    <td><img src="images/stanford_logo.avif" class="uni-logo"></td>
+                    <td><strong>Stanford</strong> (Host: Prof. Shuran Song), 2024: <em>LBMs & Contact-Rich Manipulation</em></td>
+                </tr>
+                <tr>
+                    <td><img src="images/mit_logo.png" class="uni-logo"></td>
+                    <td><strong>MIT</strong> (Host: Prof. Russ Tedrake), 2023: <em>Soft Sensing & Perceptive Grippers</em></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="gallery">
+            <h2 class="section-title">Robot Gallery</h2>
+            <div class="gallery-collage">
+                <div class="collage-item"><img src="images/punyo_1.png"><div class="collage-cap">Punyo-1</div></div>
+                <div class="collage-item"><img src="images/tri-soft-bubble-gripper-image-2-1500x1000-1.jpg"><div class="collage-cap">SoftBubble</div></div>
+                <div class="collage-item"><img src="images/polytouch_with_tool.jpg"><div class="collage-cap">PolyTouch</div></div>
+                <div class="collage-item"><img src="images/icub_white.jpg"><div class="collage-cap">iCub Humanoid</div></div>
+                <div class="collage-item"><img src="images/poochi_palmtop.jpg"><div class="collage-cap">Poochi Micro</div></div>
+                <div class="collage-item"><img src="images/irobiq.jpg"><div class="collage-cap">iRobiQ</div></div>
+                <div class="collage-item"><img src="images/icub_balancing.jpg"><div class="collage-cap">iCub Balancing</div></div>
+                <div class="collage-item"><img src="images/hansaramnme.jpg"><div class="collage-cap">HansaRam IV</div></div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: right; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding: 20px 0;">
