@@ -313,3 +313,33 @@ h2 { font-weight: normal; font-size: 24px; margin-bottom: 20px; }
   font-size: 40px;
   cursor: pointer;
 }
+/* Dense Gallery Grid - Updated for 2x Size */
+.dense-gallery {
+  display: grid;
+  /* Changed from 150px to 300px for 2x size */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 8px; /* Slightly larger gap looks better with larger images */
+  margin-top: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px; /* Optional: subtle rounding for larger images */
+}
+
+/* Highlighted Publications - Deitke Style */
+.pub-table { width: 100%; border-spacing: 0 40px; border-collapse: separate; }
+.pub-media-container { 
+    position: relative; width: 100%; height: 200px; border-radius: 8px; overflow: hidden; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); background: #fff; 
+}
+.pub-media-container img { width: 100%; height: 100%; object-fit: cover; }
+.pub-media-container img:first-child { position: relative; z-index: 1; }
+.pub-media-container img.hover-gif { position: absolute !important; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; z-index: 2 !important; }
+.pub-media-container:hover img.hover-gif { opacity: 1; }
+.pub-media-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s; z-index: 10; }
+.pub-media-container:hover video { opacity: 1; }
+.pub-media-container iframe { width: 100%; height: 100%; border: 0; }
