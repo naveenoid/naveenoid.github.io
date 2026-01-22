@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naveen Kuppuswamy | Roboticist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <div style="flex: 1;">
+                <h1 class="name">Naveen Kuppuswamy</h1>
+                <p class="blurb">Roboticist, Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a></p>
+                <div class="social-links">
+                    <a href="mailto:naveen.sk@gmail.com">Email</a> / 
+                    <a href="data/Naveen_CV.pdf">CV</a> / 
+                    <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a> / 
+                    <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
+                </div>
+            </div>
+            <div class="profile-thumb">
+                <img src="images/IMG_0001.png" alt="Naveen Kuppuswamy profile">
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="media.html">Media</a>
+        </nav>
+    </header>
+
+    <main class="main-wrap">
+        <h2>About Me</h2>
+        <img src="images/naveen_kuka.jpg" class="about-photo" alt="Naveen at TRI">
+        <p>I am a Senior Research Scientist and the Tactile Perception and Control Lead at the <strong>Toyota Research Institute (TRI)</strong> in Cambridge, MA. My work focuses on tactile-perception, control, and soft-robotics for robust manipulation in home environments.</p>
+        <p>Previously, I was a Post-Doc at IIT Genova and a visiting researcher at the University of Zürich. I hold a PhD in AI from the <strong>University of Zürich</strong> (Marie Curie Fellow) and an MS from <strong>KAIST</strong>.</p>
+        <p>I also served as the Project Manager for DWENGO, a non-profit taking robotics to under-privileged children worldwide.</p>
+    </main>
+</body>
+</html>

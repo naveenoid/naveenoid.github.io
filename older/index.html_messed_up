@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Naveen Kuppuswamy</title>
+    <meta name="author" content="Naveen Kuppuswamy">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  </head>
+
+  <body>
+    <!-- Fixed Header Section -->
+    <div class="header-container">
+      <div class="header-content">
+        <div class="profile-section">
+          <div class="profile-text">
+            <h1 class="name">Naveen Kuppuswamy</h1>
+            <p class="bio">
+              I am a Senior Research Scientist at <a href="https://www.tri.global">Toyota Research Institute</a> in the Large Behavior Models division. I lead robot data strategy and build tactile-informed foundation models that enable robots to manipulate objects through vision, touch, and audio.
+            </p>
+            <p class="bio">
+              My work spans from award-winning sensor design (SoftBubble, Punyo, PolyTouch) to contact-aware policy learning. PhD from University of Zurich (Marie Curie Fellow).
+            </p>
+            <p class="links">
+              <a href="mailto:naveen.sk@gmail.com">Email</a>
+              <a href="data/Naveen_CV.pdf">CV</a>
+              <a href="https://scholar.google.com/citations?user=Ec3-TsUAAAAJ">Scholar</a>
+              <a href="https://linkedin.com/in/naveen-kuppuswamy-5913808">LinkedIn</a>
+              <a href="https://github.com/naveenoid">Github</a>
+            </p>
+          </div>
+          <div class="profile-image">
+            <img src="images/naveen_headshot.jpg" alt="Naveen Kuppuswamy">
+          </div>
+        </div>
+
+        <!-- Horizontal Navigation Menu -->
+        <nav class="nav-menu">
+          <a href="#publications" class="nav-link active">Selected Publications</a>
+          <a href="#research" class="nav-link">Research</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#talks" class="nav-link">Talks & Media</a>
+          <a href="#robots" class="nav-link">Robots Gallery</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content Area (Scrollable) -->
+    <div class="main-content">
+      
+      <!-- Publications Section -->
+      <section id="publications" class="content-section">
+        <h2 class="section-title">Selected Publications</h2>
+        
+        <div class="paper-grid">
+          
+          <!-- PolyTouch Paper -->
+          <article class="paper-card">
+            <div class="paper-image">
+              <img src="images/polytouch_with_tool.jpg" alt="PolyTouch">
+            </div>
+            <div class="paper-content">
+              <h3 class="paper-title">
+                <a href="https://polytouch.alanz.info/">PolyTouch: A Robust Multi-Modal Tactile Sensor for Contact-rich Manipulation</a>
+              </h3>
+              <p class="paper-authors">
+                <a href="https://alanz.info/">Jialiang Zhao</a>,
+                <strong>Naveen Kuppuswamy</strong>,
+                Siyuan Feng,
+                Benjamin Burchfiel,
+                <a href="https://web.mit.edu/teda/www/">Edward Adelson</a>
+              </p>
+              <p class="paper-venue"><em>ICRA 2025</em></p>
+              <p class="paper-description">
+                A robust multi-modal robot finger combining tactile, acoustic, and peripheral vision sensing for contact-rich manipulation. Demonstrates 20x longer lifespan than commercial tactile sensors and significantly outperforms vision-only policies.
+              </p>
+              <div class="paper-links">
+                <a href="https://polytouch.alanz.info/" class="paper-link">project</a>
+                <a href="https://arxiv.org/abs/2410.15059" class="paper-link">arXiv</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ManiWAV Paper -->
+          <article class="paper-card">
+            <div class="paper-image">
+              <img src="images/maniwav_placeholder.jpg" alt="ManiWAV" onerror="this.src='images/polytouch_with_tool.jpg'">
+            </div>
+            <div class="paper-content">
+              <h3 class="paper-title">
+                <a href="https://mani-wav.github.io/">ManiWAV: Learning Robot Manipulation from In-the-Wild Audio-Visual Data</a>
+              </h3>
+              <p class="paper-authors">
+                Zeyi Liu, Cheng Chi, Eric Cousineau,
+                <strong>Naveen Kuppuswamy</strong>,
+                Benjamin Burchfiel, Shuran Song
+              </p>
+              <p class="paper-venue"><em>CoRL 2024</em></p>
+              <p class="paper-description">
+                Learning contact-rich manipulation from audio-visual demonstrations collected in-the-wild. Demonstrates how audio signals reveal contact events, surface materials, and object states that vision alone cannot capture.
+              </p>
+              <div class="paper-links">
+                <a href="https://mani-wav.github.io/" class="paper-link">project</a>
+                <a href="https://arxiv.org/abs/2406.19464" class="paper-link">arXiv</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Adaptive Compliance Paper -->
+          <article class="paper-card">
+            <div class="paper-image">
+              <img src="images/compliance_placeholder.jpg" alt="Adaptive Compliance" onerror="this.src='images/polytouch_with_tool.jpg'">
+            </div>
+            <div class="paper-content">
+              <h3 class="paper-title">
+                <a href="https://adaptive-compliance.github.io/">Adaptive Compliance Policy: Learning Approximate Compliance for Diffusion Guided Control</a>
+              </h3>
+              <p class="paper-authors">
+                Yifan Hou, Zeyi Liu, Cheng Chi, Eric Cousineau,
+                <strong>Naveen Kuppuswamy</strong>,
+                Siyuan Feng, Benjamin Burchfiel, Shuran Song
+              </p>
+              <p class="paper-venue"><em>ICRA 2025</em></p>
+              <p class="paper-description">
+                Learning to dynamically adjust robot compliance both spatially and temporally for contact-rich manipulation. Achieves 50%+ improvement over vision-only policies on tasks requiring force regulation.
+              </p>
+              <div class="paper-links">
+                <a href="https://adaptive-compliance.github.io/" class="paper-link">project</a>
+                <a href="https://arxiv.org/abs/2410.xxxxx" class="paper-link">arXiv</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Robot Learning Best Practices Paper -->
+          <article class="paper-card">
+            <div class="paper-image">
+              <img src="images/bestpractices_placeholder.jpg" alt="Best Practices" onerror="this.src='images/polytouch_with_tool.jpg'">
+            </div>
+            <div class="paper-content">
+              <h3 class="paper-title">
+                <a href="#">Robot Learning as an Empirical Science: Best Practices for Policy Evaluation</a>
+              </h3>
+              <p class="paper-authors">
+                Hadas Kress-Gazit, Kunimatsu Hashimoto,
+                <strong>Naveen Kuppuswamy</strong>,
+                Paarth Shah, Phoebe Horgan, Gordon Richardson, Siyuan Feng, Benjamin Burchfiel
+              </p>
+              <p class="paper-venue"><em>ICRA 2025</em></p>
+              <p class="paper-description">
+                Proposing best practices for rigorous evaluation of robot learning policies, including experimental setup, metrics, and statistical analysis to advance the field's scientific foundations.
+              </p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2409.09491" class="paper-link">arXiv</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Research Section -->
+      <section id="research" class="content-section">
+        <h2 class="section-title">Research</h2>
+        <div class="research-content">
+          <p>
+            My research focuses on enabling robots to perform reliable manipulation in complex, contact-rich environments. I work at the intersection of hardware, sensing, and learning:
+          </p>
+          
+          <div class="research-area">
+            <h3>Tactile-Driven Manipulation</h3>
+            <p>
+              Designing multi-modal tactile sensors (vision, touch, audio) and developing contact-aware policies that leverage haptic feedback for robust manipulation.
+            </p>
+          </div>
+
+          <div class="research-area">
+            <h3>Large Behavior Models</h3>
+            <p>
+              Scaling foundation models to manipulation through cross-embodiment learning and multimodal sensing.
+            </p>
+          </div>
+
+          <div class="research-area">
+            <h3>Data Strategy for Robot Learning</h3>
+            <p>
+              Building scalable data collection frameworks, evaluation methodologies, and best practices for training generalizable robot policies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="content-section">
+        <h2 class="section-title">Projects</h2>
+        <p class="placeholder-text">Projects section coming soon...</p>
+      </section>
+
+      <!-- Talks & Media Section -->
+      <section id="talks" class="content-section">
+        <h2 class="section-title">Talks & Media</h2>
+        <p class="placeholder-text">Talks and media appearances coming soon...</p>
+      </section>
+
+      <!-- Robots Gallery Section -->
+      <section id="robots" class="content-section">
+        <h2 class="section-title">Robots Gallery</h2>
+        <p class="placeholder-text">Robots gallery coming soon...</p>
+      </section>
+
+    </div>
+
+    <script>
+      // Smooth scrolling for navigation
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          // Update active state
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Scroll to section
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Update active nav on scroll
+      window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.content-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
