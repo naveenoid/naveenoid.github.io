@@ -26,8 +26,11 @@
         <!-- All Publications Section -->
         <div data-include="includes/publications.html"></div>
 
-        <!-- Patents Section (optional - uncomment if needed) -->
-        <!-- <div data-include="includes/patents.html"></div> -->
+        <!-- Acknowledged Contributions Section -->
+        <div data-include="includes/acknowledged-contributions.html"></div>
+
+        <!-- Patents Section -->
+        <div data-include="includes/patents.html"></div>
 
         <!-- Talks Section -->
         <div data-include="includes/talks.html"></div>
@@ -40,49 +43,114 @@
             Last updated: January 2025
         </footer>
     </main>
-    <!-- Floating Back to Top -->
-    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
-        title="Back to top" aria-label="Back to top">
-    </button>
-    
+    <!-- Floating Navigation Menu -->
+    <nav id="floating-nav" aria-label="Page navigation">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Top</a>
+        <a href="#selected-publications">Featured</a>
+        <a href="#all-publications">Publications</a>
+        <a href="#acknowledged-contributions">Acknowledged</a>
+        <a href="#patents">Patents</a>
+        <a href="#talks">Talks</a>
+        <a href="#gallery">Gallery</a>
+    </nav>
+
     <style>
-    #back-to-top {
+    #floating-nav {
         position: fixed;
-        left: 20px;
-        bottom: 40px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #fff;
-        border: 1.5px solid #ddd;
-        color: #555;
-        font-size: 1.1rem;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.25s, transform 0.25s, border-color 0.2s;
-        z-index: 999;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.97);
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        padding: 10px 6px;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        gap: 2px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s;
     }
-    #back-to-top:hover {
-        border-color: #f66;
-        color: #f66;
-    }
-    #back-to-top.visible {
+    #floating-nav.visible {
         opacity: 1;
-        transform: translateY(0);
+    }
+    #floating-nav a {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #777;
+        text-decoration: none;
+        padding: 5px 14px;
+        border-radius: 12px;
+        transition: background 0.15s, color 0.15s;
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+        display: block;
+    }
+    #floating-nav a:hover {
+        background: #f5f5f5;
+        color: #222;
+    }
+    #floating-nav a.active {
+        background: #f0f0f0;
+        color: #333;
+        font-weight: 600;
+    }
+    @media (max-width: 720px) {
+        #floating-nav {
+            top: auto;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+            flex-direction: row;
+            padding: 7px 10px;
+            gap: 0;
+            border-radius: 24px;
+            white-space: nowrap;
+            overflow-x: auto;
+            max-width: calc(100vw - 32px);
+        }
+        #floating-nav a {
+            padding: 5px 9px;
+            font-size: 0.65rem;
+        }
     }
     </style>
-    
+
     <script>
     (function() {
-        var btn = document.getElementById('back-to-top');
+        var nav = document.getElementById('floating-nav');
+        var links = nav.querySelectorAll('a');
+        var sections = [];
+
         window.addEventListener('scroll', function() {
-            btn.classList.toggle('visible', window.scrollY > 300);
+            nav.classList.toggle('visible', window.scrollY > 120);
         }, { passive: true });
+
+        function buildSections() {
+            sections = [];
+            links.forEach(function(a) {
+                var href = a.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    var el = document.getElementById(href.slice(1));
+                    if (el) sections.push({ link: a, el: el });
+                }
+            });
+        }
+
+        function updateActive() {
+            if (!sections.length) buildSections();
+            var scrollY = window.scrollY + 80;
+            var current = null;
+            sections.forEach(function(s) {
+                if (s.el.offsetTop <= scrollY) current = s;
+            });
+            links.forEach(function(a) { a.classList.remove('active'); });
+            if (current) current.link.classList.add('active');
+        }
+
+        window.addEventListener('scroll', updateActive, { passive: true });
+        window.addEventListener('load', function() { buildSections(); updateActive(); });
     })();
     </script>
 </body>
